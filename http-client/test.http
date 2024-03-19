@@ -1,4 +1,4 @@
-POST http://localhost:8876/api/optimize
+POST http://185.87.150.75:8876/api/optimize
 Accept: */*
 Content-Type: multipart/form-data; boundary="abcd"
 service-key: cee6f0f0-2df3-46c2-98fb-679cdc2812ee

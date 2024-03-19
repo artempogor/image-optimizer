@@ -1,7 +1,9 @@
 # Image-optimize
 
+На момент 19.03.2024 залит на хост http://185.87.150.75, порт 8876
+
 Микросервис для оптимизации изображений. Сделан на фреймворке lumen
-<a href="https://lumen.laravel.com/docs/10.x">https://lumen.laravel.com/docs/10.x</a>
+<a href="https://lumen.laravel.com/docs/10.x">https://lumen.laravel.com/docs/10.x</a>. В сервисе установленно два расширения для обработки изображений : GD и Imagick (см [OptimizeInterface.php](app%2FServices%2FOptimize%2FOptimizeInterface.php))
 
 ## Установка
 
