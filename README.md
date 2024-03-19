@@ -1,26 +1,24 @@
-# Lumen PHP Framework
+# Image-optimize
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+Микросервис для оптимизации изображений. Сделан на фреймворке laravel
+<a href="https://lumen.laravel.com/docs/10.x">https://lumen.laravel.com/docs/10.x</a>
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Установка
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+### Установка с использованием docker
 
-## Official Documentation
+1. ```cp .env.example .env```
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+2. Настроить необходимые переменные окружения (подключение к БД, volume для БД).
 
-## Contributing
+3. ```docker-compose up -d --build```
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. В контейнере php-fpm выполнить команды
+    1. ```composer install```
+    2. ```php artisan migrate```
+## Тестирование эндпоинтов
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Оптимизация изображения : [test.http](http-client%2Ftest.http)
+   * optimize_level - уровень сжатия избражения
+   * image - исходное изображение
+   * service-key (header) - межсервисный ключ
