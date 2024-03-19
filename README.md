@@ -1,6 +1,6 @@
 # Image-optimize
 
-Микросервис для оптимизации изображений. Сделан на фреймворке laravel
+Микросервис для оптимизации изображений. Сделан на фреймворке lumen
 <a href="https://lumen.laravel.com/docs/10.x">https://lumen.laravel.com/docs/10.x</a>
 
 ## Установка
