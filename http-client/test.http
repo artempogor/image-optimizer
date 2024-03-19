@@ -1,0 +1,28 @@
+POST http://localhost:8876/api/optimize
+Accept: */*
+Content-Type: multipart/form-data; boundary="abcd"
+service-key: cee6f0f0-2df3-46c2-98fb-679cdc2812ee
+
+--abcd
+Content-Disposition: form-data; name="optimize_level"
+
+10
+--abcd
+Content-Disposition: form-data; name="image"; filename="test-image.jpg"
+
+< ./test-image.jpg
+--abcd--
+
+###
+
+GET http://localhost:8876/api/storage/20240319/65f963498b5ca2.59575051/test-image.jpg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="test-image.jpg"
+
+< ./test-image.jpg
+--WebAppBoundary--
+
+###
+
