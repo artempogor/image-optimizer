@@ -32,6 +32,6 @@ class SaveFileInStorage
             . DIRECTORY_SEPARATOR
             . date('Ymd')
             . DIRECTORY_SEPARATOR
-            . uniqid('', true);
+            . uniqid();
     }
 }
