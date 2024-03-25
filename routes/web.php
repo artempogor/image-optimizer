@@ -13,9 +13,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/', 'StatisticController@statistic');
+
 
 $router->get('/info', function () use ($router) {
     return phpinfo();
