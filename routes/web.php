@@ -15,6 +15,7 @@
 
 $router->get('/', 'StatisticController@statistic');
 
+$router->get('/upload', 'OptimizeController@compressFromWeb');
 
 $router->get('/info', function () use ($router) {
     return phpinfo();

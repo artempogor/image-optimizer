@@ -18,6 +18,16 @@ class OptimizeController
     /**
      * @throws \ImagickException
      */
+    public function compressFromWeb(Request $request): \Illuminate\View\View|\Laravel\Lumen\Application
+    {
+        $item = $this->compress($request);
+
+        return view('upload', ['statistic' => $item]);
+
+    }
+    /**
+     * @throws \ImagickException
+     */
     public function compress(Request $request): Response
     {
         $validator = Validator::make($request->all(), [
@@ -26,7 +36,7 @@ class OptimizeController
         ]);
 
         if($validator->fails()) {
-            return response($validator->messages(), 200);
+            return response($validator->messages(), 402);
         }
 
         $result = $this->optimizeService->compress($request->file('image'), $request->get('optimize_level'));
