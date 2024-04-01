@@ -67,8 +67,12 @@
     </label>
     <br>
     <label>
-        Optimize-Level :
-        <input type="text" name="Optimize-Level" value="50" id="optimize_level"/>
+        Степень сжатия изображения:
+        <select>
+            <option id="optimize_level" value="10">Жесткая</option>
+            <option id="optimize_level" value="50">Средняя</option>
+            <option id="optimize_level" value="90">Слабая</option>
+        </select>
     </label>
     <br>
 
@@ -76,68 +80,9 @@
 </form>
 
 <div id="preview">
-    <div id="preview-text">
-    </div>
 </div>
-
-
 <div id="after">
-    <div id="after-text">
-    </div>
 </div>
-
-<script>
-    document.getElementById('uploadForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var form = document.getElementById('uploadForm');
-        var file = form.querySelector("#file").files[0];
-        var headerValue = form.querySelector('#header').value;
-        var optimizeLevel = form.querySelector('#optimize_level').value;
-
-        if (!file) {
-            alert('Нужно прикрепить файл');
-            return;
-        }
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/api/optimize', true);
-        xhr.setRequestHeader('service-key', headerValue);
-
-        var formData = new FormData();
-        formData.append('image', file);
-        formData.append('optimize_level', optimizeLevel);
-
-        xhr.onload = function () {
-            if (xhr.status === 200 && file) {
-                document.getElementById('after-text').innerHTML = '<h1>После обработки:</h1>';
-                document.getElementById('preview-text').innerHTML = '<h1>До обработки:</h1>';
-
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var img = document.createElement('img');
-                    img.src = e.target.result;
-                    document.getElementById('preview').append(img);
-                }
-
-                var response = JSON.parse(xhr.responseText);
-                var img = document.createElement('img');
-                img.src = response.path;
-                document.getElementById('after').append(img);
-
-                reader.readAsDataURL(file);
-            }
-
-            if(xhr.status === 403) {
-                alert('Неверный service-key!')
-            }
-
-            if(xhr.status === 500) {
-                alert('Не удалось сжать файл, попробуйте позже!')
-            }
-        };
-
-        xhr.send(formData);
-    });
-</script>
 </body>
+<script type="text/javascript" src="/js/upload.js"></script>
 </html>
