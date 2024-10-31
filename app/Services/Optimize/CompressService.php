@@ -38,9 +38,14 @@ class CompressService
             optimizedBytes: $optimizedBytes
         ));
 
+        $sizeFilePreview = $file->file('image')->getSize();
+        $sizeFileAfter = $fileResponse->bytes;
+
         return [
             'path' => $fileResponse->path,
-            'optimized_bytes' => $optimizedBytes
+            'optimized_bytes' => $optimizedBytes,
+            'size_file_preview' => $sizeFilePreview,
+            'size_file_after' => $sizeFileAfter
         ];
     }
 }
