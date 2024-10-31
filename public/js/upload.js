@@ -23,8 +23,8 @@ document.getElementById('uploadForm').addEventListener('submit', function (e) {
         if (xhr.status >= 200 && xhr.status < 300) {
             var response = JSON.parse(xhr.responseText);
 
-            document.getElementById('preview').innerHTML = '<h1>До обработки:</h1> <br> <h2>Размер: ' + response.size_file_preview + '</h2></br>';
-            document.getElementById('after').innerHTML = '<h1>После обработки:</h1><br> <h2>Размер: ' + response.size_file_after + '</h2></br>';
+            document.getElementById('preview').innerHTML = '<h1>До обработки:</h1> <br> <h2>Размер: ' + response.size_file_preview + ' байт</h2></br>';
+            document.getElementById('after').innerHTML = '<h1>После обработки:</h1><br> <h2>Размер: ' + response.size_file_after + 'байт</h2></br>';
 
             var reader = new FileReader();
             reader.onload = function (e) {
