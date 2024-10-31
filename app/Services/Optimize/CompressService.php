@@ -38,7 +38,7 @@ class CompressService
             optimizedBytes: $optimizedBytes
         ));
 
-        $sizeFilePreview = $file->file('image')->getSize();
+        $sizeFilePreview = $file->getSize();
         $sizeFileAfter = $fileResponse->bytes;
 
         return [
